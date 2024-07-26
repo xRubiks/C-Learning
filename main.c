@@ -5,6 +5,10 @@
 
 int main() {
     Playfield* playfield = initField();
-    printField(playfield, true);
-    return 0;
+    while(true) {
+        printField(playfield, false);
+        int row, col;
+        input(playfield, &row, &col);
+        revealFieldAround(row, col, playfield);
+    }
 }

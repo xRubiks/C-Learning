@@ -10,6 +10,7 @@
 typedef struct Playfield{
     int size;
     int bombs;
+    int revealedCells;
     enum CellState** backField;
     enum CellState** fromtField;
 }Playfield;
@@ -18,13 +19,14 @@ typedef struct Playfield{
 enum CellState {
     REVEALED,
     UNREVEALED,
-    BOMB,
-    MARKED
+    BOMB
 };
 
 
 void printField(Playfield* playfield, bool showBombs);
 Playfield* initField();
+void revealFieldAround(int x, int y, Playfield* playfield);
+void input(Playfield* playfield, int* row, int* col);
 
 
 
